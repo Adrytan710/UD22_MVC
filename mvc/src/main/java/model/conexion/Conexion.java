@@ -8,6 +8,9 @@ import java.util.Date;
 public class Conexion {
 	
    static String bd = "ud22_patronMVC";
+   static String login = "remote";
+   static String password = "Servidor20";
+   static String url = "jdbc:mysql://localhost:3306/" + bd + "?useTimezone=true&serverTimezone=UTC";
 
    Connection conexion = null;
 
@@ -15,7 +18,7 @@ public class Conexion {
    public Conexion() {
       try {
          Class.forName("com.mysql.cj.jdbc.Driver");
-         conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.160:3306?useTimezone=true&serverTimezone=UTC","remote","Servidor20");
+         conexion = DriverManager.getConnection(url, login, password);
          
          if (conexion!=null) {
             System.out.print("Conexión a la base de datos " + bd + "_SUCCESS at");
