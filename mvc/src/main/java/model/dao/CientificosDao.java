@@ -19,7 +19,7 @@ public class CientificosDao {
 		
 		try {
 			Statement stat = conexion.getConnection().createStatement();
-			String sql= "INSERT INTO cientificos VALUES ('" + miCientificos.getDni() + "', '" + miCientificos.getNomApels() + "');";
+			String sql= "INSERT INTO Cientificos VALUES ('" + miCientificos.getDni() + "', '" + miCientificos.getNomApels() + "');";
 			stat.executeUpdate(sql);
 			JOptionPane.showMessageDialog(null, "Se ha registrado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
 			System.out.println(sql);
@@ -39,7 +39,7 @@ public class CientificosDao {
 		boolean existe = false;
 		
 		try {
-			String sql= "SELECT * FROM cientificos where DNI = ? ";
+			String sql= "SELECT * FROM Cientificos where DNI = ? ";
 			PreparedStatement consulta = conexion.getConnection().prepareStatement(sql);
 			consulta.setString(1, dni);
 			ResultSet resultado = consulta.executeQuery();
@@ -70,7 +70,7 @@ public class CientificosDao {
 		Conexion conexion = new Conexion();
 		
 		try {
-			String consulta = "UPDATE cientificos SET DNI = ? , NomApels = ? WHERE DNI = ? ";
+			String consulta = "UPDATE Cientificos SET DNI = ? , NomApels = ? WHERE DNI = ? ";
 			PreparedStatement stat = conexion.getConnection().prepareStatement(consulta);
 			stat.setString(1, miCientificos.getDni());
 			stat.setString(2, miCientificos.getNomApels());
@@ -90,7 +90,7 @@ public class CientificosDao {
 		Conexion conexion = new Conexion();
 		
 		try {
-			String sql= "DELETE FROM cientificos WHERE DNI = '" + codigo + "'";
+			String sql= "DELETE FROM Cientificos WHERE DNI = '" + codigo + "'";
 			Statement stat = conexion.getConnection().createStatement();
 			stat.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, " Se ha eliminado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
@@ -109,12 +109,12 @@ public class CientificosDao {
 		ArrayList<String> arraylist = new ArrayList<String>();
 		
 		try {
-			String sql = "SELECT dni FROM cientificos";
+			String sql = "SELECT DNI FROM Cientificos";
 			PreparedStatement consulta = conexion.getConnection().prepareStatement(sql);
 			ResultSet resultado = consulta.executeQuery();
 			
 			while(resultado.next()) {
-				arraylist.add(resultado.getString("dni"));
+				arraylist.add(resultado.getString("DNI"));
 			}
 			
 			resultado.close();

@@ -18,7 +18,7 @@ public class Asignado_ADao {
 		
 		try {
 			boolean existe = false;
-			String sql= "SELECT * FROM asignado_a where Cientifico = ? ";
+			String sql= "SELECT * FROM Asignado_A where Cientifico = ? ";
 			PreparedStatement consulta = conexion.getConnection().prepareStatement(sql);
 			consulta.setString(1, miAsignado.getCientifico());
 			ResultSet resultado = consulta.executeQuery();
@@ -32,11 +32,11 @@ public class Asignado_ADao {
 			
 			if(!existe) {
 				Statement st = conexion.getConnection().createStatement();
-				sql2 = "INSERT INTO asignado_a VALUES ('" + miAsignado.getCientifico() + "', '" + miAsignado.getProyecto() + "');";
+				sql2 = "INSERT INTO Asignado_A VALUES ('" + miAsignado.getCientifico() + "', '" + miAsignado.getProyecto() + "');";
 				st.executeUpdate(sql2);
 				st.close();
 			} else {
-				sql2 = "UPDATE asignado_a SET Cientifico = ? , Proyecto = ? WHERE Cientifico = ? ";
+				sql2 = "UPDATE Asignado_A SET Cientifico = ? , Proyecto = ? WHERE Cientifico = ? ";
 				PreparedStatement stat = conexion.getConnection().prepareStatement(sql2);
 				stat.setString(1, miAsignado.getCientifico());
 				stat.setString(2, miAsignado.getProyecto());
