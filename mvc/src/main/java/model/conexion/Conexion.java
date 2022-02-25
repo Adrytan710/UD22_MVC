@@ -13,7 +13,7 @@ public class Conexion {
    static String url = "jdbc:mysql://192.168.1.160:3306/" + bd + "?useTimezone=true&serverTimezone=UTC";
 
    Connection conexion = null;
-
+ 
    //Constructor
    public Conexion() {
       try {
