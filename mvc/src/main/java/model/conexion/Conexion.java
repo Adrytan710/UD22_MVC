@@ -7,10 +7,10 @@ import java.util.Date;
 
 public class Conexion {
 	
-   static String bd = "ud22_patronMVC";
+   static String bd = "LosCientificos";
    static String login = "remote";
    static String password = "Servidor20";
-   static String url = "jdbc:mysql://localhost:3306/" + bd + "?useTimezone=true&serverTimezone=UTC";
+   static String url = "jdbc:mysql://192.168.1.160:3306/" + bd + "?useTimezone=true&serverTimezone=UTC";
 
    Connection conexion = null;
 
